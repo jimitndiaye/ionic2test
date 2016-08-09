@@ -18,6 +18,8 @@ import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callbac
 
 import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 import { APP_RESOLVER_PROVIDERS } from '../app/app.resolver';
+
+import {ionicProviders } from 'ionic-angular';
 /*
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment
@@ -28,13 +30,11 @@ export const APPLICATION_PROVIDERS = [
   provideForms(),
 
   ...APP_RESOLVER_PROVIDERS,
-
   provideRouter(routes),
   provideWebpack(asyncRoutes),
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
-
   ...HTTP_PROVIDERS,
-
+  ...ionicProviders(),
   { provide: LocationStrategy, useClass: HashLocationStrategy }
 ];
 

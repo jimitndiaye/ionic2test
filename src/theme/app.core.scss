@@ -1,0 +1,52 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Imports
+// --------------------------------------------------
+// These are the imports which make up the design of this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+
+// @import "./../app/components/about/about.scss";
+// @import "./../app/components/home/home.scss";
+//@import "../pages/page3/page3";
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable]:not([draggable=false]) {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+// @import 'font-awesome';
+
+// @mixin icon($name) {
+//   &:before {
+//   font-family: FontAwesome;
+//   font-weight: normal;
+//   font-style: normal;
+//   display: inline-block;
+//   text-decoration: inherit;
+//   margin-right: 0.4em;
+//   }
+
+//   @extend .fa-#{$name};
+// }
+
+// @import './../components/components.core.scss';

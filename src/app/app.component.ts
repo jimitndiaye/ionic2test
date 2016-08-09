@@ -5,6 +5,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
 
+import './../theme/app.ios.scss';
+import './../theme/app.md.scss';
+import './../theme/app.wp.scss';
 /*
  * App Component
  * Top Level Component

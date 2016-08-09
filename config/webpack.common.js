@@ -13,6 +13,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
+var autoprefixer = require('autoprefixer');
 
 /*
  * Webpack Constants
@@ -136,7 +137,7 @@ module.exports = {
       /*
        * Typescript loader support for .ts and Angular 2 async routes via .async.ts
        * Replace templateUrl and stylesUrl with require()
-       * 
+       *
        * See: https://github.com/s-panferov/awesome-typescript-loader
        * See: https://github.com/TheLarkInn/angular2-template-loader
        */
@@ -154,6 +155,18 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader'
+      },
+      {
+        test: /\app.(ios|md|wp).scss$/,
+        //exclude: helpers.root('src', 'app'),
+        loader: 'file?name=assets/css/[name].css!extract!css-loader?root=..!postcss!resolve-url!sass?sourceMap'
+      },
+      {
+          test: /\.(woff|woff2|eot|ttf|svg|ico)$/,
+          //exclude: /node_modules/,
+          // loader: 'url-loader?limit=100000'
+          loader: 'url-loader?limit=100000&name=/fonts/[name].[ext]'
+          // loader: 'file?name=fonts/[name].[ext]'
       },
 
       /*
@@ -176,7 +189,7 @@ module.exports = {
         loader: 'raw-loader',
         exclude: [helpers.root('src/index.html')]
       },
-      
+
       /* File loader for supporting images, for example, in CSS files.
       */
       {
@@ -277,6 +290,37 @@ module.exports = {
     }),
 
   ],
+  /**
+   * PostCSS
+   * Reference: https://github.com/postcss/autoprefixer-core
+   * Add vendor prefixes to your css
+   */
+    postcss: [
+        autoprefixer({
+            browsers: [
+                'last 2 versions',
+                'iOS >= 7',
+                'Android >= 4',
+                'Explorer >= 10',
+                'ExplorerMobile >= 11'
+            ],
+            cascade: false
+        })
+    ],
+
+    /**
+     * Sass
+     * Reference: https://github.com/jtangelder/sass-loader
+     * Transforms .scss files to .css
+     */
+    sassLoader: {
+        includePaths: [
+            helpers.root('node_modules/ionic-angular'),
+            helpers.root('node_modules/ionic-angular/themes'),
+            helpers.root('node_modules/ionicons/dist/scss'),
+            // helpers.rootNode('font-awesome/scss')
+        ]
+    },
 
   /*
    * Include polyfills or mocks for various node stuff
