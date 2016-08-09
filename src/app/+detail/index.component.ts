@@ -44,8 +44,8 @@ export class IonicPage {
     <ion-nav [root]="ionicPage"></ion-nav>
   `
 })
-export class Index implements OnInit, AfterViewInit {
-  ionicPage: IonicPage;
+export class Index implements OnInit {
+  ionicPage = IonicPage;
   @ViewChild(Nav) nav: NavController;
   constructor() {
 
@@ -53,10 +53,5 @@ export class Index implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log('hello `Index` component');
-  }
-
-  ngAfterViewInit() {
-    // Side issue: Setting the root in the template above didn't work. Had to use setRoot for some reason
-    this.nav.setRoot(IonicPage);
   }
 }
