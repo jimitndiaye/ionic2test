@@ -1,3 +1,4 @@
+This repository reproduces [this](https://github.com/driftyco/ionic/issues/7563) Ionic issue.
 Refer to app/+detail/index.component.ts for the ionic code.
 
 To reproduce:
