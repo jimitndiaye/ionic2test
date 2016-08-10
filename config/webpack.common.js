@@ -187,7 +187,7 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'raw-loader',
-        exclude: [helpers.root('src/index.html')]
+        exclude: [helpers.root('src/index.template.html')]
       },
 
       /* File loader for supporting images, for example, in CSS files.
@@ -259,7 +259,7 @@ module.exports = {
      * See: https://github.com/ampedandwired/html-webpack-plugin
      */
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'src/index.template.html',
       chunksSortMode: 'dependency'
     }),
 

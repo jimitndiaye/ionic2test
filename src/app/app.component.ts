@@ -8,6 +8,7 @@ import { AppState } from './app.service';
 import './../theme/app.ios.scss';
 import './../theme/app.md.scss';
 import './../theme/app.wp.scss';
+import { IonicPage } from './+detail/index.component';
 /*
  * App Component
  * Top Level Component
@@ -47,6 +48,7 @@ import './../theme/app.wp.scss';
 
     <main>
       <router-outlet></router-outlet>
+      <ion-nav [root]="navRoot"></ion-nav>
     </main>
 
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
@@ -65,7 +67,7 @@ export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
-
+  navRoot = IonicPage;
   constructor(
     public appState: AppState) {
 

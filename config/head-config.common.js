@@ -15,6 +15,9 @@
  */
 module.exports = {
   link: [
+    { rel:"stylesheet", ["ios-href"]: "./assets/css/app.ios.css"},
+    { rel:"stylesheet", ["md-href"]: "./assets/css/app.md.css"},
+    { rel:"stylesheet", ["wp-href"]: "./assets/css/app.wp.css"},
     /** <link> tags for "apple-touch-icon" (AKA Web Clips). **/
     { rel: "apple-touch-icon", sizes: "57x57", href: "/assets/icon/apple-icon-57x57.png" },
     { rel: "apple-touch-icon", sizes: "60x60", href: "/assets/icon/apple-icon-60x60.png" },
