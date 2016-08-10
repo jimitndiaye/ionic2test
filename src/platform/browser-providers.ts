@@ -30,7 +30,7 @@ export const APPLICATION_PROVIDERS = [
   provideForms(),
 
   ...APP_RESOLVER_PROVIDERS,
-  provideRouter(routes),
+  // provideRouter(routes),
   provideWebpack(asyncRoutes),
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
   ...HTTP_PROVIDERS,
