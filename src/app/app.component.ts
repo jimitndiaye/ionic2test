@@ -24,18 +24,7 @@ import { IonicPage } from './+detail/index.component';
   `
 })
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
   navRoot = IonicPage;
-  constructor(
-    public appState: AppState) {
-
-  }
-
-  ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
 
 }
 
